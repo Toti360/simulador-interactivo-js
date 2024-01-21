@@ -1,62 +1,91 @@
-const veces = Number(prompt("Ingrese el número de veces que desea calcular el costo del producto"));
-const productos = []; // Array para almacenar los productos
+document.addEventListener('DOMContentLoaded', function () {
 
-class Producto {
-    constructor(costoProduccion, margenBeneficio) {
-        this.costoProduccion = costoProduccion;
-        this.margenBeneficio = margenBeneficio;
-        this.costoTotal = 0;
-    }
+    localStorage.removeItem('historialCalculos');
 
-    calcularCostoTotal() {
-        if (Number.isNaN(this.costoProduccion) || Number.isNaN(this.margenBeneficio) || this.costoProduccion <= 0 || this.margenBeneficio <= 0) {
-            return "Los parámetros deben ser números positivos mayores a cero.";
+    const calcularButton = document.getElementById('calcularButton');
+    const costoProduccionInput = document.getElementById('costoProduccion');
+    const margenBeneficioInput = document.getElementById('margenBeneficio');
+    const resultadoContainer = document.getElementById('resultado');
+    const historialContainer = document.getElementById('historial');
+    const estadisticasContainer = document.getElementById('estadisticas');
+
+    // Cargar datos previos desde localStorage
+    const historialCalculos = JSON.parse(localStorage.getItem('historialCalculos')) || [];
+
+    // Función para actualizar el historial en localStorage
+    const actualizarHistorial = () => {
+        localStorage.setItem('historialCalculos', JSON.stringify(historialCalculos));
+    };
+
+    // Función para mostrar el historial en la página
+    const mostrarHistorial = () => {
+        historialContainer.innerHTML = '<h2>Historial de Cálculos</h2>';
+
+        if (historialCalculos.length === 0) {
+            historialContainer.innerHTML += '<p>No hay cálculos en el historial.</p>';
+            return;
         }
 
-        this.costoTotal = this.costoProduccion + (this.costoProduccion * (this.margenBeneficio / 100));
+        historialCalculos.forEach((calculo, index) => {
+            historialContainer.innerHTML += `
+                <p>Calculo ${index + 1}: Costo de Producción: $${calculo.costoProduccion.toFixed(2)}, Margen de Beneficio: ${calculo.margenBeneficio}%, Costo Total: $${calculo.costoTotal.toFixed(2)}</p>
+            `;
+        });
+    };
 
-        return this.costoTotal;
-    }
-}
+    calcularButton.addEventListener('click', function () {
+        const costoProduccion = parseFloat(costoProduccionInput.value);
+        const margenBeneficio = parseFloat(margenBeneficioInput.value);
 
-for (let i = 0; i < veces; i++) {
-    const costoProduccion = Number(prompt(`Ingrese el costo de su producto ${i + 1} `));
-    const margenBeneficio = Number(prompt("Ingrese el margen de beneficio esperado"));
+        if (isNaN(costoProduccion) || isNaN(margenBeneficio) || costoProduccion <= 0 || margenBeneficio <= 0) {
+            alert("Ingrese valores válidos para el costo de producción y el margen de beneficio.");
+            return;
+        }
 
-    const miProducto = new Producto(costoProduccion, margenBeneficio);
-    const costoTotalProducto = miProducto.calcularCostoTotal();
+        const costoTotal = costoProduccion + (costoProduccion * (margenBeneficio / 100));
 
-    // Subo cada producto al array productos
-    productos.push({
-        index: i + 1,
-        costoProduccion,
-        margenBeneficio,
-        costoTotal: costoTotalProducto
+        // Agregar el nuevo cálculo al historial
+        const nuevoCalculo = {
+            costoProduccion,
+            margenBeneficio,
+            costoTotal
+        };
+
+        historialCalculos.push(nuevoCalculo);
+        actualizarHistorial();
+
+        // Mostrar el resultado actual
+        resultadoContainer.textContent = `El costo total es: $${costoTotal.toFixed(2)}`;
+
+        // Mostrar el historial actualizado
+        mostrarHistorial();
+
+        // Calcular y mostrar estadísticas
+        calcularEstadisticas();
     });
-}
 
-console.log("Lista de Productos:", productos);
+    // Función para calcular y mostrar estadísticas
+    const calcularEstadisticas = () => {
+        if (historialCalculos.length === 0) {
+            estadisticasContainer.innerHTML = '<h2>Estadísticas</h2><p>No hay suficientes datos para calcular estadísticas.</p>';
+            return;
+        }
 
-// Calculo estadísticas de costos
-const costosTotales = productos.map(producto => producto.costoTotal);
-const costoPromedio = costosTotales.reduce((sum, costo) => sum + costo, 0) / costosTotales.length;
-const costoMaximo = Math.max(...costosTotales);
-const costoMinimo = Math.min(...costosTotales);
+        const costosTotales = historialCalculos.map(calculo => calculo.costoTotal);
+        const costoPromedio = costosTotales.reduce((sum, costo) => sum + costo, 0) / costosTotales.length;
+        const costoMaximo = Math.max(...costosTotales);
+        const costoMinimo = Math.min(...costosTotales);
 
-console.log("Costos Totales:", costosTotales);
-console.log("Costo Promedio:", costoPromedio);
-console.log("Costo Máximo:", costoMaximo);
-console.log("Costo Mínimo:", costoMinimo);
+        // Encontrar el producto más económico
+        const productoMasEconomico = historialCalculos.find(calculo => calculo.costoTotal === costoMinimo);
 
-// Busco el producto más económico utilizando el método find
-const productoMasEconomico = productos.find(producto => producto.costoTotal === costoMinimo);
+        estadisticasContainer.innerHTML = `
+            <h2>Estadísticas</h2>
+            <p>Costo Promedio: $${costoPromedio.toFixed(2)}</p>
+            <p>Costo Máximo: $${costoMaximo.toFixed(2)}</p>
+            <p>Costo Mínimo: $${costoMinimo.toFixed(2)}</p>
+            <p>Producto Más Económico: Costo Total: $${productoMasEconomico.costoTotal.toFixed(2)}</p>
+        `;
+    };
+});
 
-alert("Lista de Productos:\n\n" + JSON.stringify(productos, null, 2));
-
-alert("Estadísticas de Costos:\n\n" +
-    "Costo Promedio: " + costoPromedio + "\n" +
-    "Costo Máximo: " + costoMaximo + "\n" +
-    "Costo Mínimo: " + costoMinimo +
-    "\n\nProducto Más Económico:\n" +
-    `Producto ${productoMasEconomico.index} - Costo Total: ${productoMasEconomico.costoTotal}`);
-    

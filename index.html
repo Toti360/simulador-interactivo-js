@@ -4,15 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora de Costo</title>
+    <link rel="stylesheet" href="./css/stylo.css">
 </head>
-    <h1>PROYECTO JAVASCRIPT <br> SIMULADOR INTERACTIVO</h1>
-    <p>Este es un simulador interactivo para calcular el costo de venta <br> 
-        de un producto de acuerdo al margen beneficio deseado.<br>
-        El simulador le devolverá una lista de los productos y su costo,<br>
-        más una estadística de los mismos, máximo, mínimo, etc.
-    </p>
+
 <body>
+    <div class="calculator">
+        <h1>Calculadora de Costo</h1>
+        <div class="input-group">
+            <label for="costoProduccion">Costo de Producción:</label>
+            <input type="number" id="costoProduccion" placeholder="Ingrese el costo de producción">
+        </div>
+        <div class="input-group">
+            <label for="margenBeneficio">Margen de Beneficio (%):</label>
+            <input type="number" id="margenBeneficio" placeholder="Ingrese el margen de beneficio">
+        </div>
+        <button id="calcularButton">Calcular</button>
+
+        <div id="resultado"></div>
+
+        <div id="historial"></div>
+
+        <div id="estadisticas"></div>
+    </div>
+
     <script src="./javascript/main.js"></script>
 </body>
 
