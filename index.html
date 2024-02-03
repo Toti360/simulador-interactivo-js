@@ -4,31 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Costo</title>
+    <title>EMPRES.AR</title>
     <link rel="stylesheet" href="./css/stylo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
 </head>
 
 <body>
-    <div class="calculator">
-        <h1>Calculadora de Costo</h1>
-        <div class="input-group">
-            <label for="costoProduccion">Costo de Producción:</label>
-            <input type="number" id="costoProduccion" placeholder="Ingrese el costo de producción">
+    <header>
+        <a href="./index.html"><img src="./image/name-logo.png" alt="logo de EMPRES.AR"></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="./index.html">INICIO</a></li>
+                <li><a target="_blank" href="./pages/recursos.html">RECURSOS</a></li>
+                <li><a target="_blank" href="./pages/login.html"><i class="bi bi-person-circle"></i>LOGIN</a></li>
+            </ul>
+            <div class="burger-menu">&#9776;</div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="herosec">
+            <h1>EMPRES.AR EL SITIO DEL EMPRENDEDOR</h1>
+            <h2>CALCULADORA DE PRECIO DE VENTA</h2>
+            <P>
+                Con esta herramienta podrás determinar el precio ideal de tus<br>productos para cubrir tus costos y
+                obtener el beneficio que aspirás
+                para tu negocio.
+            </P>
+        </section>
+        <section class="calculadora">
+            <div class="calculator">
+                <h2>CALCULA TU PRECIO DE VENTA</h2>
+
+                <label for="costoProduccion">Costo del Producto:</label>
+                <input type="number" id="costoProduccion" placeholder="Ingrese el costo del producto">
+
+                <label for="margenBeneficio">Margen de Beneficio (%):</label>
+                <input type="number" id="margenBeneficio" placeholder="Ingrese el margen de beneficio">
+
+                <label for="costosAdicionales">Costos Adicionales(gastos, envío, etc.):</label>
+                <input type="number" id="costosAdicionales" placeholder="Ingrese gastos de envío y otros gastos" />
+
+                <label for="porcentajeIVA">Porcentaje de IVA (%):</label>
+                <input type="number" id="porcentajeIVA" placeholder="Ingrese el porcentaje de Iva" />
+
+                <button id="calcularButton">CALCULAR</button>
+
+                <div id="resultado"></div>
+
+                <div id="historial"></div>
+
+                <div id="estadisticas"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="titulo">
+            <h2>SEGUINOS EN NUESTRAS REDES</h2>
         </div>
-        <div class="input-group">
-            <label for="margenBeneficio">Margen de Beneficio (%):</label>
-            <input type="number" id="margenBeneficio" placeholder="Ingrese el margen de beneficio">
+        <div class="redes">
+            <a target="_blank" href="https://ar.linkedin.com/"><i class="bi bi-linkedin"></i></i></a>
+            <a target="_blank" href="https://github.com/Toti360"><i class="bi bi-github"></i></a>
+            <a target="_blank" href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+            <a target="_blank" href="https://www.facebook.com/?locale=es_LA"><i class="bi bi-facebook"></i></a>
+            <a target="_blank" href="https://twitter.com/?lang=es"><i class="bi bi-twitter-x"></i></a>
+            <a target="_blank" href="https://www.whatsapp.com/"><i class="bi bi-whatsapp"></i></a>
         </div>
-        <button id="calcularButton">Calcular</button>
-
-        <div id="resultado"></div>
-
-        <div id="historial"></div>
-
-        <div id="estadisticas"></div>
-    </div>
+        <div class="pie">
+            <h3>Desarrollado con ❤️ by TOTI - Todos los derechos reservados</h3>
+        </div>
+    </footer>
 
     <script src="./javascript/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>

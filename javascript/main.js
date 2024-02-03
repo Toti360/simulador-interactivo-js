@@ -1,23 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    localStorage.removeItem('historialCalculos');
+    // Limpiar el localStorage cuando cierro la página
+    localStorage.clear('historialCalculos');
 
     const calcularButton = document.getElementById('calcularButton');
     const costoProduccionInput = document.getElementById('costoProduccion');
     const margenBeneficioInput = document.getElementById('margenBeneficio');
+    const costosAdicionalesInput = document.getElementById('costosAdicionales');
+    const porcentajeIVAInput = document.getElementById('porcentajeIVA')
     const resultadoContainer = document.getElementById('resultado');
     const historialContainer = document.getElementById('historial');
     const estadisticasContainer = document.getElementById('estadisticas');
 
-    // Cargar datos previos desde localStorage
+    // Cargar datos desde localStorage
     const historialCalculos = JSON.parse(localStorage.getItem('historialCalculos')) || [];
 
-    // Función para actualizar el historial en localStorage
+    // Actualizar el historial en localStorage
     const actualizarHistorial = () => {
         localStorage.setItem('historialCalculos', JSON.stringify(historialCalculos));
     };
 
-    // Función para mostrar el historial en la página
+    // Mostrar el historial en la página
     const mostrarHistorial = () => {
         historialContainer.innerHTML = '<h2>Historial de Cálculos</h2>';
 
@@ -28,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         historialCalculos.forEach((calculo, index) => {
             historialContainer.innerHTML += `
-                <p>Calculo ${index + 1}: Costo de Producción: $${calculo.costoProduccion.toFixed(2)}, Margen de Beneficio: ${calculo.margenBeneficio}%, Costo Total: $${calculo.costoTotal.toFixed(2)}</p>
+                <p>Calculo ${index + 1}: Costo del Producto: $${calculo.costoProduccion.toFixed(2)}, Margen de Beneficio: ${calculo.margenBeneficio}%, Precio de Venta: $${calculo.precioConIVA.toFixed(2)}</p>
             `;
         });
     };
@@ -36,26 +39,31 @@ document.addEventListener('DOMContentLoaded', function () {
     calcularButton.addEventListener('click', function () {
         const costoProduccion = parseFloat(costoProduccionInput.value);
         const margenBeneficio = parseFloat(margenBeneficioInput.value);
+        const costosAdicionales = parseFloat(costosAdicionalesInput.value);
+        const porcentajeIVA = parseFloat(porcentajeIVAInput.value);
 
-        if (isNaN(costoProduccion) || isNaN(margenBeneficio) || costoProduccion <= 0 || margenBeneficio <= 0) {
-            alert("Ingrese valores válidos para el costo de producción y el margen de beneficio.");
+
+        if (isNaN(costoProduccion) || isNaN(margenBeneficio) || isNaN(porcentajeIVA) || isNaN(costosAdicionales) || costoProduccion <= 0 || margenBeneficio <= 0 || porcentajeIVA < 0) {
+            alert("Ingrese valores válidos para el costo del producto, el margen de beneficio y el porcentaje de IVA");
             return;
         }
 
-        const costoTotal = costoProduccion + (costoProduccion * (margenBeneficio / 100));
+        const precioSinIVA = costoProduccion + (costoProduccion * (margenBeneficio / 100)) + costosAdicionales;
+        const precioConIVA = precioSinIVA + (precioSinIVA * (porcentajeIVA / 100));
 
         // Agregar el nuevo cálculo al historial
         const nuevoCalculo = {
             costoProduccion,
             margenBeneficio,
-            costoTotal
+            precioConIVA
         };
 
         historialCalculos.push(nuevoCalculo);
         actualizarHistorial();
 
         // Mostrar el resultado actual
-        resultadoContainer.textContent = `El costo total es: $${costoTotal.toFixed(2)}`;
+        resultadoContainer.textContent = `EL PRECIO DE VENTA ES: $${precioConIVA.toFixed(2)}`;
+        resultadoContainer.classList.add('resultadoEstilos');
 
         // Mostrar el historial actualizado
         mostrarHistorial();
@@ -64,28 +72,38 @@ document.addEventListener('DOMContentLoaded', function () {
         calcularEstadisticas();
     });
 
-    // Función para calcular y mostrar estadísticas
+    // Calcular y mostrar estadísticas
     const calcularEstadisticas = () => {
         if (historialCalculos.length === 0) {
             estadisticasContainer.innerHTML = '<h2>Estadísticas</h2><p>No hay suficientes datos para calcular estadísticas.</p>';
             return;
         }
 
-        const costosTotales = historialCalculos.map(calculo => calculo.costoTotal);
+        const costosTotales = historialCalculos.map(calculo => calculo.precioConIVA);
         const costoPromedio = costosTotales.reduce((sum, costo) => sum + costo, 0) / costosTotales.length;
         const costoMaximo = Math.max(...costosTotales);
         const costoMinimo = Math.min(...costosTotales);
 
         // Encontrar el producto más económico
-        const productoMasEconomico = historialCalculos.find(calculo => calculo.costoTotal === costoMinimo);
+        const productoMasEconomico = historialCalculos.find(calculo => calculo.precioConIVA === costoMinimo);
+        const productoMasCostoso = historialCalculos.find(calculo => calculo.precioConIVA === costoMaximo);
 
         estadisticasContainer.innerHTML = `
             <h2>Estadísticas</h2>
-            <p>Costo Promedio: $${costoPromedio.toFixed(2)}</p>
-            <p>Costo Máximo: $${costoMaximo.toFixed(2)}</p>
-            <p>Costo Mínimo: $${costoMinimo.toFixed(2)}</p>
-            <p>Producto Más Económico: Costo Total: $${productoMasEconomico.costoTotal.toFixed(2)}</p>
+            <p>Precio Promedio: $${costoPromedio.toFixed(2)}</p>
+            <p>Precio Máximo: $${costoMaximo.toFixed(2)}</p>
+            <p>Precio Mínimo: $${costoMinimo.toFixed(2)}</p>
+            <p>Producto Más Económico: Precio de Venta: $${productoMasEconomico.precioConIVA.toFixed(2)}</p>
+            <p>Producto Más Costoso: Precio de Venta: $${productoMasCostoso.precioConIVA.toFixed(2)}</p>
         `;
     };
 });
+// Hacer el menú hamburguesa
+document.addEventListener('DOMContentLoaded', function () {
+    const burgerMenu = document.querySelector('.burger-menu');
+    const navLinks = document.querySelector('.nav-links');
 
+    burgerMenu.addEventListener('click', function () {
+        navLinks.classList.toggle('show');
+    });
+});
