@@ -1,0 +1,131 @@
+@media screen and (max-width:1400px) {
+    main {
+        .herramientas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (max-width:1000px) {
+    main {
+        .herosec {
+            h1 {
+                font-size: 30px;
+                margin-bottom: 20px;
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 30px;
+                margin-bottom: 20px;
+                padding: 20px;
+            }
+
+            p {
+                font-size: 15px;
+                margin-bottom: 15px;
+                padding: 15px;
+            }
+        }
+
+        .h1 {
+            h1 {
+                font-size: 28px;
+                padding: 10px;
+            }
+        }
+
+        .h2 {
+            h2 {
+                font-size: 25px;
+            }
+        }
+
+        .container {
+            padding: 1rem;
+            padding-top: 20rem;
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+    }
+
+    footer {
+        .titulo {
+            h2 {
+                font-size: 25px;
+            }
+        }
+
+        .redes {
+            gap: 1rem;
+
+            a {
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .pie {
+            h3 {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    header {
+        nav {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: lightseagreen;
+                text-align: center;
+
+                li {
+                    margin: 0;
+                    padding: 15px;
+                    border-bottom: 1px solid whitesmoke;
+                }
+            }
+
+            .nav-links.show {
+                    display: flex;
+                }
+
+            .burger-menu {
+                display: block;
+                font-size: 30px;
+                font-weight: bold;
+                cursor: pointer;
+                color: whitesmoke;
+                margin-right: 2rem;
+                transition: transform 0.5s;
+
+                &:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
+                }
+            }
+        }
+    }
+
+    main {
+        h1 {
+            padding: 1rem;
+        }
+
+        h2 {
+            padding: 1rem;
+        }
+    }
+}

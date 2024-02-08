@@ -1,0 +1,49 @@
+footer {
+    background-color: lightseagreen;
+    margin-top: 3rem;
+
+    .titulo {
+        h2 {
+            color: #4348BD;
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 35px;
+        }
+    }
+
+    .redes {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 4rem;
+        margin-top: 1rem;
+        padding: 1rem;
+
+        a {
+            i {
+                color: #4348BD;
+                font-size: 50px;
+                font-weight: bold;
+                transition: 0.25s;
+
+                &:hover {
+                    color: whitesmoke;
+                }
+            }
+        }
+    }
+
+    .pie {
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+        padding: 2px;
+
+        h3 {
+            color: #4348BD;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}

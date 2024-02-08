@@ -206,7 +206,7 @@ body main .herramientas a img {
     margin-bottom: 5px;
 }
 
-#articulos {
+body main #articulos {
     width: 90%;
     display: flex;
     justify-content: space-around;
@@ -214,12 +214,12 @@ body main .herramientas a img {
     margin: 0 auto;
 }
 
-#articulos div {
+body main #articulos div {
     width: 300px;
     margin: 15px;
 }
 
-#articulos img {
+body main #articulos img {
     width: 100%;
     height: auto;
 }
@@ -243,20 +243,20 @@ body main .container h1 {
     margin: 20px 0;
 }
 
-body main .container form {
+body main .container #registrationForm {
     display: flex;
     flex-direction: column;
     max-width: 300px;
     margin: 0 auto;
 }
 
-body main .container form label {
+body main .container #registrationForm label {
     margin-top: 10px;
     font-size: 25px;
     font-weight: bold;
 }
 
-body main .container form input {
+body main .container #registrationForm input {
     padding: 8px;
     margin-top: 5px;
     margin-bottom: 10px;
@@ -264,7 +264,7 @@ body main .container form input {
     border-radius: 4px;
 }
 
-body main .container form button {
+body main .container #registrationForm button {
     background-color: lightseagreen;
     font-size: 25px;
     font-weight: bold;
@@ -352,6 +352,20 @@ body footer .pie h3 {
         padding: 15px;
     }
 
+    body main .h1,
+    body main .h2 {
+        font-size: 15px;
+    }
+
+    body main .container {
+        padding: 1rem;
+        padding-top: 20rem;
+    }
+
+    body main .container h1 {
+        font-size: 30px;
+    }
+
     body footer .titulo h2 {
         font-size: 25px;
     }
@@ -366,20 +380,6 @@ body footer .pie h3 {
 
     body footer .pie h3 {
         font-size: 15px;
-    }
-
-    body main .h1,
-    body main .h2 {
-        font-size: 15px;
-    }
-
-    body main .container {
-        padding: 1rem;
-        padding-top: 20rem;
-    }
-
-    body main .container h1 {
-        font-size: 30px;
     }
 }
 

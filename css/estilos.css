@@ -1,0 +1,315 @@
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed&display=swap");
+/*font-family: 'Sofia Sans Semi Condensed', sans-serif;*/
+/*!-----------------RESET-----------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Sofia Sans Semi Condensed', sans-serif; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+ul {
+  list-style: none; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightseagreen;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  margin: 0 auto;
+  padding: 0; }
+  header a img {
+    max-width: 6rem;
+    margin: 0.5rem 2rem;
+    padding: 0;
+    transition: transform 0.5s; }
+    header a img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.671); }
+  header nav .nav-links {
+    display: flex;
+    gap: 2rem;
+    margin-right: 4rem; }
+    header nav .nav-links li a {
+      font-size: 20px;
+      color: whitesmoke;
+      transition: 0.25s; }
+      header nav .nav-links li a:hover {
+        color: #4348BD; }
+      header nav .nav-links li a i {
+        margin-right: 5px; }
+  header nav .burger-menu {
+    display: none; }
+
+main .herosec {
+  margin: 0 auto;
+  background-image: url(../image/emprendedor1.jpg);
+  background-size: cover;
+  text-align: center; }
+  main .herosec h1 {
+    font-size: 50px;
+    font-weight: bold;
+    background-color: rgba(51, 49, 49, 0.459);
+    color: whitesmoke;
+    margin-bottom: 50px;
+    padding: 50px; }
+  main .herosec h2 {
+    font-size: 40px;
+    font-weight: bold;
+    background-color: rgba(51, 49, 49, 0.459);
+    color: whitesmoke;
+    margin-bottom: 50px;
+    padding: 50px; }
+  main .herosec p {
+    font-size: 40px;
+    font-weight: bold;
+    background-color: rgba(51, 49, 49, 0.459);
+    color: whitesmoke;
+    margin-bottom: 50px;
+    padding: 50px; }
+
+main .calculadora {
+  background-image: url(../image/fondo.jpg);
+  background-size: cover;
+  padding-top: 3rem;
+  padding-bottom: 3rem; }
+  main .calculadora .calculator {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #4348BD;
+    border-radius: 10px;
+    padding: 15px; }
+    main .calculadora .calculator h2 {
+      color: whitesmoke;
+      text-align: center; }
+    main .calculadora .calculator label {
+      color: whitesmoke;
+      display: block;
+      margin-top: 15px; }
+    main .calculadora .calculator input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border-radius: 5px; }
+    main .calculadora .calculator #calcularButton {
+      width: 100%;
+      padding: 10px;
+      background-color: lightseagreen;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      margin-top: 10px; }
+      main .calculadora .calculator #calcularButton:hover {
+        background-color: #0056b3; }
+    main .calculadora .calculator #resultado {
+      margin-top: 30px;
+      margin-bottom: 20px; }
+    main .calculadora .calculator .resultadoEstilos {
+      color: purple;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+      border-radius: 5px; }
+
+main .h1 h1 {
+  color: #4348BD;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5rem;
+  font-size: 40px; }
+
+main .herramientas {
+  font-size: 17px;
+  font-weight: bold;
+  color: #4348BD;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center; }
+  main .herramientas div {
+    padding: 4rem;
+    transition: transform 0.5s; }
+    main .herramientas div:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.671); }
+    main .herramientas div a img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 5px; }
+
+main .h2 h2 {
+  color: #4348BD;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 5rem;
+  font-size: 35px; }
+
+main #articulos {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 0 auto; }
+  main #articulos div {
+    width: 300px;
+    margin: 15px; }
+  main #articulos img {
+    width: 100%;
+    height: auto; }
+
+main .container {
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+  margin: 0 auto;
+  padding: 20rem;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url(../image/emprendedor3.jpg);
+  background-size: cover;
+  text-align: center; }
+  main .container h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 20px 0; }
+  main .container #registrationForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto; }
+    main .container #registrationForm label {
+      margin-top: 10px;
+      font-size: 25px;
+      font-weight: bold; }
+    main .container #registrationForm input {
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px; }
+    main .container #registrationForm button {
+      background-color: lightseagreen;
+      font-size: 25px;
+      font-weight: bold;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer; }
+      main .container #registrationForm button:hover {
+        background-color: #0056b3; }
+
+footer {
+  background-color: lightseagreen;
+  margin-top: 3rem; }
+  footer .titulo h2 {
+    color: #4348BD;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 35px; }
+  footer .redes {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 1rem;
+    padding: 1rem; }
+    footer .redes a i {
+      color: #4348BD;
+      font-size: 50px;
+      font-weight: bold;
+      transition: 0.25s; }
+      footer .redes a i:hover {
+        color: whitesmoke; }
+  footer .pie {
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 2px; }
+    footer .pie h3 {
+      color: #4348BD;
+      font-size: 20px;
+      font-weight: bold; }
+
+@media screen and (max-width: 1400px) {
+  main .herramientas {
+    display: flex;
+    flex-direction: column;
+    align-items: center; } }
+
+@media screen and (max-width: 1000px) {
+  main .herosec h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    padding: 20px; }
+  main .herosec h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    padding: 20px; }
+  main .herosec p {
+    font-size: 15px;
+    margin-bottom: 15px;
+    padding: 15px; }
+  main .h1 h1 {
+    font-size: 28px;
+    padding: 10px; }
+  main .h2 h2 {
+    font-size: 25px; }
+  main .container {
+    padding: 1rem;
+    padding-top: 20rem; }
+    main .container h1 {
+      font-size: 30px; }
+  footer .titulo h2 {
+    font-size: 25px; }
+  footer .redes {
+    gap: 1rem; }
+    footer .redes a i {
+      font-size: 20px; }
+  footer .pie h3 {
+    font-size: 15px; } }
+
+@media screen and (max-width: 550px) {
+  header nav .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: lightseagreen;
+    text-align: center; }
+    header nav .nav-links li {
+      margin: 0;
+      padding: 15px;
+      border-bottom: 1px solid whitesmoke; }
+  header nav .nav-links.show {
+    display: flex; }
+  header nav .burger-menu {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    color: whitesmoke;
+    margin-right: 2rem;
+    transition: transform 0.5s; }
+    header nav .burger-menu:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.671); }
+  main h1 {
+    padding: 1rem; }
+  main h2 {
+    padding: 1rem; } }

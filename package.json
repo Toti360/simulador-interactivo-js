@@ -1,0 +1,17 @@
+{
+  "name": "proyecto-javascript",
+  "version": "1.0.0",
+  "description": "PROYECTO JAVASCRIPT - SIMULADOR INTERACTIVO\r Este es un simulador interactivo para calcular el costo de venta de un producto de acuerdo al margen beneficio deseado.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/estilos.scss css/estilos.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "nodemon": "^3.0.3"
+  }
+}

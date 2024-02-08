@@ -1,0 +1,224 @@
+main {
+
+    .herosec {
+        margin: 0 auto;
+        background-image: url(../image/emprendedor1.jpg);
+        background-size: cover;
+        text-align: center;
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            background-color: rgba(51, 49, 49, 0.459);
+            color: whitesmoke;
+            margin-bottom: 50px;
+            padding: 50px;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: bold;
+            background-color: rgba(51, 49, 49, 0.459);
+            color: whitesmoke;
+            margin-bottom: 50px;
+            padding: 50px;
+        }
+
+        p {
+            font-size: 40px;
+            font-weight: bold;
+            background-color: rgba(51, 49, 49, 0.459);
+            color: whitesmoke;
+            margin-bottom: 50px;
+            padding: 50px;
+        }
+    }
+
+    .calculadora {
+        background-image: url(../image/fondo.jpg);
+        background-size: cover;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        .calculator {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #4348BD;
+            border-radius: 10px;
+            padding: 15px;
+
+            h2 {
+                color: whitesmoke;
+                text-align: center;
+            }
+
+            label {
+                color: whitesmoke;
+                display: block;
+                margin-top: 15px;
+            }
+
+            input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+                border-radius: 5px;
+            }
+
+            #calcularButton {
+                width: 100%;
+                padding: 10px;
+                background-color: lightseagreen;
+                color: #fff;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                margin-top: 10px;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+
+            #resultado {
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+
+            .resultadoEstilos {
+                color: purple;
+                margin-top: 20px;
+                padding: 10px;
+                background-color: #f7f7f7;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    .h1 {
+        h1 {
+            color: #4348BD;
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+            padding: 5rem;
+            font-size: 40px;
+        }
+    }
+
+    .herramientas {
+        font-size: 17px;
+        font-weight: bold;
+        color: #4348BD;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+
+        div {
+            padding: 4rem;
+            transition: transform 0.5s;
+
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.671);
+            }
+
+            a {
+                img {
+                    width: 150px;
+                    height: 150px;
+                    margin-bottom: 5px;
+                }
+            }
+
+        }
+    }
+
+    .h2 {
+        h2 {
+            color: #4348BD;
+            width: 80%;
+            text-align: center;
+            margin: 0 auto;
+            padding: 5rem;
+            font-size: 35px;
+        }
+    }
+
+    #articulos {
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 0 auto;
+
+        div {
+            width: 300px;
+            margin: 15px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .container {
+        font-family: 'Sofia Sans Semi Condensed', sans-serif;
+        margin: 0 auto;
+        padding: 20rem;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-image: url(../image/emprendedor3.jpg);
+        background-size: cover;
+        text-align: center;
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        #registrationForm {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: 0 auto;
+
+            label {
+                margin-top: 10px;
+                font-size: 25px;
+                font-weight: bold;
+            }
+
+            input {
+                padding: 8px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            button {
+                background-color: lightseagreen;
+                font-size: 25px;
+                font-weight: bold;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+        }
+    }
+
+}
